@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_camera"
+            android:icon="@drawable/nav_theme"
+            android:title="主题中心" />
+        <item
+            android:id="@+id/nav_gallery"
+            android:icon="@drawable/nav_night"
+            android:title="夜间模式" />
+        <item
+            android:id="@+id/nav_slideshow"
+            android:icon="@drawable/nav_about"
+            android:title="关于" />
+        <item
+            android:id="@+id/nav_manage"
+            android:icon="@drawable/nav_logout"
+            android:title="退出" />
+    </group>
+</menu>

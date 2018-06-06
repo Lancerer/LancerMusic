@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/ll_playbar"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:background="@drawable/rect"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/iv_playbar_album"
+            android:layout_width="45dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/album" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="15dp"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/tv_playbar_sing_name"
+                android:layout_width="150dp"
+                android:layout_height="25dp"
+                android:singleLine="true"
+                android:textSize="15sp"
+                android:text="歌名"/>
+            <TextView
+                android:id="@+id/tv_playbar_singer_name"
+                android:layout_width="wrap_content"
+                android:textSize="12sp"
+                android:singleLine="true"
+                android:layout_height="150dp"
+                android:text="歌手名"/>
+        </LinearLayout>
+        <ImageView
+            android:id="@+id/iv_playbar_play"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:clickable="true"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/play"/>
+        <ImageView
+            android:id="@+id/iv_playbar_next"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="15dp"
+            android:clickable="true"
+            android:src="@drawable/next"/>
+        <ImageView
+            android:id="@+id/iv_playbar_menu"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:clickable="true"
+            android:layout_gravity="center"
+            android:padding="5dp"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/menu"/>
+    </LinearLayout>
+
+</LinearLayout>

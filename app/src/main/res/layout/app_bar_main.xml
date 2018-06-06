@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_height="match_parent">
+<!--  -->
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar_mainAvtivity"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/biliPink" />
+
+    <LinearLayout
+        android:id="@+id/fix_list_ll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toolbar_mainAvtivity"
+        android:orientation="vertical">
+        <!-- android:background="@drawable/selector_layout"-->
+        <LinearLayout
+            android:id="@+id/ll_local_music"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/home_local_music_iv"
+                android:layout_width="25dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:layout_margin="10dp"
+                app:srcCompat="@drawable/phone"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="49.5dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/home_local_music_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentLeft="true"
+                        android:gravity="center_vertical"
+                        android:text="本地音乐" />
+
+                    <TextView
+                        android:id="@+id/home_local_music_count_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="30dp"
+                        android:gravity="center_vertical"
+                        android:textColor="@color/grey500"
+                        android:textSize="12sp" />
+
+                    <ImageView
+                        android:layout_width="10dp"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginRight="16dp"
+                        android:src="@drawable/arrow_right" />
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@color/colorDividerGray"/>
+            </LinearLayout>
+        </LinearLayout>
+        <!--        android:background="@drawable/selector_layout"-->
+        <LinearLayout
+            android:id="@+id/ll_recently_music"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/home_recently_music_iv"
+                android:layout_width="25dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:layout_margin="10dp"
+                app:srcCompat="@drawable/recently"   />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="49.5dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/home_recently_music_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:text="最近音乐" />
+
+                    <TextView
+                        android:id="@+id/home_recently_music_count_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="30dp"
+                        android:gravity="center_vertical"
+                        android:textColor="@color/grey500"
+                        android:textSize="12sp" />
+
+                    <ImageView
+                        android:layout_width="10dp"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentRight="true"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginRight="16dp"
+                        android:src="@drawable/arrow_right" />
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@color/colorDividerGray"/>
+            </LinearLayout>
+        </LinearLayout>
+<!--  android:background="@drawable/selector_layout"-->
+        <LinearLayout
+            android:id="@+id/ll_love_music"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/home_my_love_music_iv"
+                android:layout_width="25dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:layout_margin="10dp"
+                app:srcCompat="@drawable/love"   />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="49.5dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/home_my_love_music_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:text="我的喜爱" />
+
+                    <TextView
+                        android:id="@+id/home_my_love_music_count_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="30dp"
+                        android:gravity="center_vertical"
+                        android:textColor="@color/grey500"
+                        android:textSize="12sp" />
+
+                    <ImageView
+                        android:layout_width="10dp"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentRight="true"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginRight="16dp"
+                        android:src="@drawable/arrow_right" />
+                </RelativeLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+    <FrameLayout
+        android:id="@+id/fragment_playbar"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:layout_alignParentBottom="true" />
+</RelativeLayout>

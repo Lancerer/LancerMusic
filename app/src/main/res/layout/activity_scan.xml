@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.lancer.lancermusic.activity.scanActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar_scan"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/biliPink"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <com.example.lancer.lancermusic.view.scanView
+        android:id="@+id/scanview"
+        android:layout_marginTop="100dp"
+        android:layout_centerHorizontal="true"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="150dp"
+        android:layout_height="230dp" />
+
+    <TextView
+        android:id="@+id/scan_path"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/scanview"
+       />
+
+    <TextView
+        android:id="@+id/tv_scan_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/scan_path"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="3dp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:text="aaa" />
+
+    <Button
+        android:id="@+id/bt_scan"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="50dp"
+        android:background="@color/biliPink"
+        android:text="开始扫描"
+        android:textColor="@color/colorWhite" />
+</RelativeLayout>

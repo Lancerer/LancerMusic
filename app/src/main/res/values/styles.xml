@@ -1,0 +1,34 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="pop_anim" parent="@android:style/Animation.Activity">
+        <item name="android:windowEnterAnimation">@anim/anim_in</item>
+        <item name="android:windowExitAnimation">@anim/anim_out</item>
+    </style>
+    <!--&lt;!&ndash;bilibili粉&ndash;&gt;
+        <style name="BILIPINKTHEME" parent="AppTheme">
+            <item name="colorPrimary">@color/biliPink</item>&lt;!&ndash;colorPrimary: 主题色&ndash;&gt;
+            <item name="colorPrimaryDark">@color/biliPink</item>&lt;!&ndash;colorAccent: 辅助色（或强调色）&ndash;&gt;
+            <item name="colorAccent">@color/biliPink</item>&lt;!&ndash;textColorPrimary: 主要的文字颜色，一般TextView的文字都是这个颜色&ndash;&gt;
+            <item name="image_tint">@color/biliPink</item>&lt;!&ndash;textColorSecondary: 辅助的文字颜色，一般比textColorPrimary的颜色弱一点，用于一些弱化的表示&ndash;&gt;
+            <item name="press_color">@color/biliPink50</item>&lt;!&ndash;windowBackground: Window的背景色&ndash;&gt;
+        </style>-->
+
+
+</resources>
