@@ -191,9 +191,4 @@
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
-    <FrameLayout
-        android:id="@+id/fragment_playbar"
-        android:layout_width="match_parent"
-        android:layout_height="52dp"
-        android:layout_alignParentBottom="true" />
 </RelativeLayout>

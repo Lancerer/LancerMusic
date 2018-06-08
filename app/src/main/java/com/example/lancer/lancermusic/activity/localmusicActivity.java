@@ -24,11 +24,10 @@ import com.example.lancer.lancermusic.view.MyViewPager;
 
 import java.util.ArrayList;
 
-public class localmusicActivity extends PlayBarBaseActivity implements TabLayout.OnTabSelectedListener {
+public class localmusicActivity extends AppCompatActivity implements TabLayout.OnTabSelectedListener {
     private Toolbar toolbarLocalactivity;
     private TabLayout tabLocalactivity;
     private MyViewPager myviewpager;
-    private FrameLayout fragmentPlaybar;
     private String[] title = {"单曲", "歌手", "专辑", "文件夹"};
     private ArrayList<Fragment> fragments;
     private com.example.lancer.lancermusic.fragment.singFragment singFragment;
@@ -140,6 +139,6 @@ public class localmusicActivity extends PlayBarBaseActivity implements TabLayout
         toolbarLocalactivity = findViewById(R.id.toolbar_localactivity);
         tabLocalactivity = findViewById(R.id.tab_localactivity);
         myviewpager = findViewById(R.id.myviewpager);
-        fragmentPlaybar = findViewById(R.id.fragment_playbar);
+
     }
 }

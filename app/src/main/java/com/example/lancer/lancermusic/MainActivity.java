@@ -7,6 +7,7 @@ import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
@@ -15,7 +16,7 @@ import android.widget.LinearLayout;
 
 import com.bumptech.glide.Glide;
 import com.example.lancer.lancermusic.activity.AboutActivity;
-import com.example.lancer.lancermusic.activity.PlayBarBaseActivity;
+
 import com.example.lancer.lancermusic.activity.ThemeActivity;
 import com.example.lancer.lancermusic.activity.localmusicActivity;
 import com.example.lancer.lancermusic.activity.lovemusicActivity;
@@ -29,7 +30,7 @@ import okhttp3.Callback;
 import okhttp3.Response;
 
 
-public class MainActivity extends PlayBarBaseActivity
+public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
 
     private Toolbar toolbar;

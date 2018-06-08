@@ -33,7 +33,7 @@ public class MyPopWindow extends PopupWindow {
         super(context);
         this.context = context;
         MyMusicUtil myMusicUtil = new MyMusicUtil();
-        lists = myMusicUtil.getMusicInfo(context);
+        lists = myMusicUtil.getMp3Infos(context);
         init();
     }
 

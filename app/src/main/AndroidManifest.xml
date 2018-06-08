@@ -49,20 +49,14 @@
             android:name=".activity.scanActivity"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
 
-        <receiver
-            android:name=".receiver.PlayerReceiver"
-            android:enabled="true"
-            android:exported="true" />
 
         <service
-            android:name=".service.PlayerService"
-            android:enabled="true"
-            android:exported="true" />
+            android:name=".service.PlayerService" />
 
         <activity
             android:name=".activity.playActivity"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
-        <activity android:name=".activity.LoginActivity"></activity>
+
     </application>
 
 </manifest>

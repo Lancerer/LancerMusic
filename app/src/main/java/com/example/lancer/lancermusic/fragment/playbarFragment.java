@@ -19,6 +19,7 @@ import android.widget.Toast;
 import com.example.lancer.lancermusic.R;
 import com.example.lancer.lancermusic.activity.playActivity;
 import com.example.lancer.lancermusic.bean.MusicBean;
+import com.example.lancer.lancermusic.service.PlayerService;
 import com.example.lancer.lancermusic.util.MyMusicUtil;
 
 import org.greenrobot.eventbus.EventBus;
@@ -58,20 +59,11 @@ public class playbarFragment extends Fragment implements View.OnClickListener {
         listView = new ListView(getContext());
         nowlist = new ArrayList<>();
         MyMusicUtil myMusicUtil = new MyMusicUtil();
-        nowlist = myMusicUtil.getMusicInfo(getContext());
+        nowlist = myMusicUtil.getMp3Infos(getContext());
         ivPlaybarNext.setOnClickListener(this);
         ivPlaybarMenu.setOnClickListener(this);
         ivPlaybarPlay.setOnClickListener(this);
         llplaybar.setOnClickListener(this);
-    }
-
-    @Subscribe
-    public void MessageEvent(singFragment.MessageEvent messageEvent) {
-        noePosition = messageEvent.position;
-        tvPlaybarSingerName.setText(messageEvent.list.get(messageEvent.position).getArtist());
-        tvPlaybarSingName.setText(messageEvent.list.get(messageEvent.position).getTitle());
-        ivPlaybarPlay.setImageResource(R.drawable.pause);
-        mediaPlayer = messageEvent.mediaPlayer;
     }
 
     @Override
@@ -104,6 +96,7 @@ public class playbarFragment extends Fragment implements View.OnClickListener {
         } else if (v.getId() == R.id.ll_playbar) {
             startActivity(new Intent(getContext(), playActivity.class));
         }
+
     }
 
     private void showPopWindow() {
@@ -160,15 +153,5 @@ public class playbarFragment extends Fragment implements View.OnClickListener {
         llplaybar = view.findViewById(R.id.ll_playbar);
     }
 
-    @Override
-    public void onResume() {
-        super.onResume();
-        EventBus.getDefault().register(this);
-    }
 
-    @Override
-    public void onStop() {
-        super.onStop();
-        EventBus.getDefault().unregister(this);
-    }
 }
