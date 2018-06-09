@@ -1,5 +1,6 @@
 package com.example.lancer.lancermusic;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -7,21 +8,25 @@ import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.Toolbar;
+import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.View;
+
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.lancer.lancermusic.activity.AboutActivity;
 
-import com.example.lancer.lancermusic.activity.ThemeActivity;
+import com.example.lancer.lancermusic.activity.BaseActivity;
 import com.example.lancer.lancermusic.activity.localmusicActivity;
 import com.example.lancer.lancermusic.activity.lovemusicActivity;
 import com.example.lancer.lancermusic.activity.recentlymusicActivity;
 import com.example.lancer.lancermusic.util.HttpUtil;
+import com.example.lancer.lancermusic.util.ThemeUtil;
 
 import java.io.IOException;
 
@@ -30,7 +35,7 @@ import okhttp3.Callback;
 import okhttp3.Response;
 
 
-public class MainActivity extends AppCompatActivity
+public class MainActivity extends BaseActivity
         implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
 
     private Toolbar toolbar;
@@ -41,6 +46,7 @@ public class MainActivity extends AppCompatActivity
     private LinearLayout llRecentlyMusic;
     private LinearLayout llLoveMusic;
     private ImageView imageView;
+    private long mExitTime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,11 +66,21 @@ public class MainActivity extends AppCompatActivity
         initData();
     }
 
-    private void initData() {
+    public void initData() {
         llLocalMusic.setOnClickListener(this);
         llLoveMusic.setOnClickListener(this);
         llRecentlyMusic.setOnClickListener(this);
         loadPic();
+    }
+
+    @Override
+    public int initLayout() {
+        return R.layout.activity_main;
+    }
+
+    @Override
+    public void initListener() {
+
     }
 
     private void loadPic() {
@@ -83,6 +99,7 @@ public class MainActivity extends AppCompatActivity
                     e.printStackTrace();
                 }
             }
+
             @Override
             public void onFailure(Call call, IOException e) {
                 e.printStackTrace();
@@ -114,24 +131,57 @@ public class MainActivity extends AppCompatActivity
             super.onBackPressed();
         }
     }
+
     //navigationView抽屉侧边布局点击事件
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.nav_camera) {
-            startActivity(new Intent(MainActivity.this, ThemeActivity.class));
+            //startActivity(new Intent(MainActivity.this, ThemeActivity.class));
+            showThemeDialog();
         } else if (id == R.id.nav_gallery) {
-
+            ThemeUtil.getInstance().setTheme(MainActivity.this, ThemeUtil.getInstance().getTheme()[1]);
         } else if (id == R.id.nav_slideshow) {
             startActivity(new Intent(MainActivity.this, AboutActivity.class));
         } else if (id == R.id.nav_manage) {
-            finish();
+            exitDialog();
         }
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
-    private void initView() {
+
+    //退出程序Dialog
+    private void exitDialog() {
+        new AlertDialog.Builder(this)
+                .setTitle("是否退出程序？")
+                .setPositiveButton("是", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        finish();
+                    }
+                }).setNegativeButton("否", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        }).create().show();
+    }
+
+    //显示theme主题Dialog
+    private void showThemeDialog() {
+        final String[] theme = ThemeUtil.getInstance().getTheme();
+        new AlertDialog.Builder(this)
+                .setTitle("选择主题")
+                .setItems(theme, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        ThemeUtil.getInstance().setTheme(MainActivity.this, theme[which]);
+                    }
+                }).create().show();
+    }
+
+    public void initView() {
         toolbar = findViewById(R.id.toolbar_mainAvtivity);
         drawer = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
@@ -144,5 +194,21 @@ public class MainActivity extends AppCompatActivity
         imageView = headerView.findViewById(R.id.imageView);
     }
 
-
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        //判断用户是否点击了“返回键”
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            //与上次点击返回键时刻作差
+            if ((System.currentTimeMillis() - mExitTime) > 2000) {
+                //大于2000ms则认为是误操作，使用Toast进行提示
+                Toast.makeText(this, "再按一次退出程序", Toast.LENGTH_SHORT).show();
+                //并记录下本次点击“返回键”的时刻，以便下次进行判断
+                mExitTime = System.currentTimeMillis();
+            } else {
+                //小于2000ms则认为是用户确实希望退出程序-调用System.exit()方法进行退出
+                System.exit(0);
+            }
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
 }

@@ -15,5 +15,7 @@ public class Constant {
     //下一曲
     public static final String ACTION_NEXT = "status_next";
     //上一曲
-    public static final String ACTION_UP= "status_up";
+    public static final String ACTION_UP = "status_up";
+    //更新theme
+    public static final String UPDATA_THEME = "updata_theme";
 }

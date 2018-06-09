@@ -8,7 +8,7 @@ import android.view.MenuItem;
 
 import com.example.lancer.lancermusic.R;
 
-public class recentlymusicActivity extends AppCompatActivity {
+public class recentlymusicActivity extends BaseActivity {
 
     private Toolbar toolbarRecentlyactivity;
 
@@ -19,12 +19,22 @@ public class recentlymusicActivity extends AppCompatActivity {
         initView();
         initData();
     }
-    private void initData() {
+    public void initData() {
         setSupportActionBar(toolbarRecentlyactivity);
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
+    }
+
+    @Override
+    public int initLayout() {
+        return R.layout.activity_recentlymusic;
+    }
+
+    @Override
+    public void initListener() {
+
     }
 
     @Override
@@ -37,7 +47,7 @@ public class recentlymusicActivity extends AppCompatActivity {
         }
         return true;
     }
-    private void initView() {
+    public void initView() {
         toolbarRecentlyactivity = findViewById(R.id.toolbar_recentlyactivity);
     }
 }

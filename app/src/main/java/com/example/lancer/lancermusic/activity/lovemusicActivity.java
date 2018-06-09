@@ -8,7 +8,7 @@ import android.view.MenuItem;
 
 import com.example.lancer.lancermusic.R;
 
-public class lovemusicActivity extends AppCompatActivity {
+public class lovemusicActivity extends BaseActivity {
 
     private Toolbar toolbarLoveactivity;
 
@@ -20,13 +20,23 @@ public class lovemusicActivity extends AppCompatActivity {
         initData();
     }
 
-    private void initData() {
+    public void initData() {
         setSupportActionBar(toolbarLoveactivity);
         toolbarLoveactivity.setTitle("我的喜愛");
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
+    }
+
+    @Override
+    public int initLayout() {
+        return R.layout.activity_lovemusic;
+    }
+
+    @Override
+    public void initListener() {
+
     }
 
     @Override
@@ -40,7 +50,7 @@ public class lovemusicActivity extends AppCompatActivity {
         return true;
     }
 
-    private void initView() {
+    public void initView() {
         toolbarLoveactivity = findViewById(R.id.toolbar_loveactivity);
     }
 }

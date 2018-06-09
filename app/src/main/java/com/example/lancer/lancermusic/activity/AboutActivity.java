@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 import com.example.lancer.lancermusic.R;
 
-public class AboutActivity extends AppCompatActivity {
+public class AboutActivity extends BaseActivity {
 
 
     private Toolbar aboutToolbar;
@@ -26,7 +26,7 @@ public class AboutActivity extends AppCompatActivity {
 
     }
 
-    private void initData() {
+    public void initData() {
         aboutToolbar = (Toolbar) findViewById(R.id.about_toolbar);
         setSupportActionBar(aboutToolbar);
         ActionBar actionBar = getSupportActionBar();
@@ -36,12 +36,15 @@ public class AboutActivity extends AppCompatActivity {
 
     }
 
-    private void openUrl(String url) {
-        Intent intent = new Intent(Intent.ACTION_VIEW);
-        intent.setData(Uri.parse(url));
-        startActivity(intent);
+    @Override
+    public int initLayout() {
+        return R.layout.activity_about;
     }
 
+    @Override
+    public void initListener() {
+
+    }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         super.onOptionsItemSelected(item);
@@ -53,7 +56,7 @@ public class AboutActivity extends AppCompatActivity {
         return true;
     }
 
-    private void initView() {
+    public void initView() {
         aboutToolbar = findViewById(R.id.about_toolbar);
         aboutVersion = findViewById(R.id.about_version);
     }

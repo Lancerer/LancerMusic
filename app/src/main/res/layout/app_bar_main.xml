@@ -8,7 +8,7 @@
         android:id="@+id/toolbar_mainAvtivity"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="@color/biliPink" />
+        android:background="?attr/colorPrimary" />
 
     <LinearLayout
         android:id="@+id/fix_list_ll"

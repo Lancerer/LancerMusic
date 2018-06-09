@@ -24,11 +24,11 @@ import com.example.lancer.lancermusic.view.MyViewPager;
 
 import java.util.ArrayList;
 
-public class localmusicActivity extends AppCompatActivity implements TabLayout.OnTabSelectedListener {
+public class localmusicActivity extends BaseActivity implements TabLayout.OnTabSelectedListener {
     private Toolbar toolbarLocalactivity;
     private TabLayout tabLocalactivity;
     private MyViewPager myviewpager;
-    private String[] title = {"单曲", "歌手", "专辑", "文件夹"};
+    private String[] title = {"单曲", "歌手", "专辑", "文件夹" };
     private ArrayList<Fragment> fragments;
     private com.example.lancer.lancermusic.fragment.singFragment singFragment;
     private com.example.lancer.lancermusic.fragment.singerFragment singerFragment;
@@ -36,14 +36,7 @@ public class localmusicActivity extends AppCompatActivity implements TabLayout.O
     private com.example.lancer.lancermusic.fragment.fileFragment fileFragment;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_localmusic);
-        initView();
-        initData();
-    }
-
-    private void initData() {
+    public void initData() {
         setSupportActionBar(toolbarLocalactivity);
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
@@ -57,6 +50,16 @@ public class localmusicActivity extends AppCompatActivity implements TabLayout.O
         tabLocalactivity.addOnTabSelectedListener(this);
         MyAdapter adapter = new MyAdapter(getSupportFragmentManager());
         myviewpager.setAdapter(adapter);
+    }
+
+    @Override
+    public int initLayout() {
+        return R.layout.activity_localmusic;
+    }
+
+    @Override
+    public void initListener() {
+
     }
 
     private void initFragment() {
@@ -93,7 +96,7 @@ public class localmusicActivity extends AppCompatActivity implements TabLayout.O
                 this.finish();
                 break;
             case R.id.scan_local_menu:
-                startActivity(new Intent(localmusicActivity.this,scanActivity.class));
+                startActivity(new Intent(localmusicActivity.this, scanActivity.class));
                 break;
         }
         return true;
@@ -135,10 +138,10 @@ public class localmusicActivity extends AppCompatActivity implements TabLayout.O
         }
     }
 
-    private void initView() {
+    @Override
+    public void initView() {
         toolbarLocalactivity = findViewById(R.id.toolbar_localactivity);
         tabLocalactivity = findViewById(R.id.tab_localactivity);
         myviewpager = findViewById(R.id.myviewpager);
-
     }
 }

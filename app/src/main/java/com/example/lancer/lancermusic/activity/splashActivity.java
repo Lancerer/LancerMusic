@@ -38,16 +38,6 @@ public class splashActivity extends AppCompatActivity {
 
     private void initData() {
         //   Glide.with(splashActivity.this).load(R.drawable.spl).into(ivSplash);
-        new Thread() {
-            @Override
-            public void run() {
-                super.run();
-                Looper.prepare();
-                tv.setText("aaaaaaaaaa");
-                Looper.loop();
-
-            }
-        }.start();
         loadPic();
         toMain();
     }

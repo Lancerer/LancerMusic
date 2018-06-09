@@ -18,7 +18,7 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activity.splashActivity"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
+            android:theme="@style/splashTheme" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -27,36 +27,33 @@
         </activity>
         <activity
             android:name=".activity.AboutActivity"
-            android:label="关于作者"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
+            android:label="关于作者" />
         <activity
             android:name=".activity.ThemeActivity"
             android:label="主题中心"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
+           />
         <activity
             android:name=".activity.localmusicActivity"
             android:label="本地音樂"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
+         />
         <activity
             android:name=".activity.lovemusicActivity"
             android:label="我的喜愛"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
+          />
         <activity
             android:name=".activity.recentlymusicActivity"
             android:label="最近音樂"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
+           />
         <activity
             android:name=".activity.scanActivity"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
+          />
 
 
         <service
             android:name=".service.PlayerService" />
 
         <activity
-            android:name=".activity.playActivity"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
-
+            android:name=".activity.playActivity" />
     </application>
 
 </manifest>
